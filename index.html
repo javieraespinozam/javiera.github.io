@@ -129,6 +129,22 @@
   }
   .scroll-hint .bar{width:1px; height:34px; background:linear-gradient(var(--faint),transparent); animation:drip 2s infinite}
 
+  /* ---------------- experience timeline ---------------- */
+  .timeline{position:relative; margin-top:10px}
+  .timeline::before{content:""; position:absolute; left:12px; top:8px; bottom:8px; width:1px; background:linear-gradient(var(--hot),var(--cool),transparent)}
+  .xp{position:relative; padding:0 0 30px 44px}
+  .xp:last-child{padding-bottom:0}
+  .xp::before{content:""; position:absolute; left:6px; top:6px; width:13px; height:13px; border-radius:50%; background:var(--bg); border:2px solid var(--hot); box-shadow:0 0 0 4px rgba(255,107,61,.10)}
+  .xp.alt::before{border-color:var(--cool); box-shadow:0 0 0 4px rgba(79,140,255,.10)}
+  .xp .xp-top{display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:4px}
+  .xp .role{font-family:"Fraunces",serif; font-size:19px; font-weight:600; color:var(--ink)}
+  .xp .co{font-size:14px; color:var(--cool-2); font-weight:500}
+  .xp .yr{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--faint); white-space:nowrap}
+  .xp ul{list-style:none; margin-top:8px}
+  .xp li{font-size:14px; color:var(--muted); padding-left:16px; position:relative; margin-bottom:6px; line-height:1.5}
+  .xp li::before{content:"›"; position:absolute; left:0; color:var(--hot); font-weight:700}
+  .xp li b{color:var(--ink); font-weight:600}
+
   /* ---------------- section frame ---------------- */
   section{position:relative; z-index:2; padding:90px 0}
   .sec-head{margin-bottom:48px}
@@ -142,7 +158,7 @@
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
   /* ---------------- focus areas strip ---------------- */
-  .focus{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .focus{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
   @media(max-width:760px){.focus{grid-template-columns:1fr}}
   .fcard{
     border:1px solid var(--line); border-radius:18px; padding:26px; background:linear-gradient(180deg,var(--panel),var(--bg-2));
@@ -183,6 +199,7 @@
   .metric .ml{font-size:11px; color:var(--faint); max-width:18ch; margin-top:6px; line-height:1.35}
   .chips{display:flex; flex-wrap:wrap; gap:7px}
   .chip{font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--muted); border:1px solid var(--line); border-radius:7px; padding:4px 9px}
+  .chip.data{color:var(--good); border-color:rgba(74,214,168,.28); background:rgba(74,214,168,.05)}
   .meta-line{font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--faint); margin-top:18px; letter-spacing:.5px}
 
   /* viz canvases per project */
@@ -228,6 +245,7 @@
   <div class="links">
     <a href="#focus">Focus</a>
     <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
     <a href="#background">Background</a>
     <a href="#contact">Contact</a>
   </div>
@@ -240,11 +258,11 @@
       <span class="l l1">Javiera Espinoza</span>
       <span class="l l2"><span class="grad">Morales</span></span>
     </h1>
-    <p class="sub">I build and validate fluid- and heat-transfer simulations from the governing equations — not black boxes. CFD in OpenFOAM and ANSYS Fluent, finite-volume and finite-difference solvers written from scratch, validated against analytical and wind-tunnel data.</p>
+    <p class="sub">Mechanical engineer (M.S., Energy concentration) who builds and validates fluid- and heat-transfer simulations from the governing equations — and turns operational data into decisions. CFD in OpenFOAM and ANSYS Fluent, solvers written from scratch, plus SQL/Python/BI pipelines deployed across real mining and industrial operations.</p>
     <div class="visa"><span class="pulse"></span>Available for OPT under F-1, then cap-exempt H-1B1 (Chile–U.S. FTA) — no lottery required</div>
     <div class="hero-cta">
       <a class="btn primary" href="#work">See the work →</a>
-      <a class="btn ghost" href="https://javieraespinozam.github.io/resume.pdf">Resume (PDF)</a>
+      <a class="btn ghost" href="https://javieraespinozam.github.io/Javiera_Espinoza_CV.pdf">Resume (PDF)</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/jpespinozam/">LinkedIn</a>
     </div>
     <div class="scroll-hint"><span>SCROLL</span><span class="bar"></span></div>
@@ -256,8 +274,8 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">What I do</div>
-      <h2 class="sec-title">Three things, done from first principles.</h2>
-      <p class="sec-lead">Every project on this site was built up from the conservation equations and checked against a known answer. The thread is judgment: knowing which method to trust, and why.</p>
+      <h2 class="sec-title">Four things, done from first principles.</h2>
+      <p class="sec-lead">From CFD and thermal modeling to the data pipelines that make engineering decisions stick. The thread is judgment: knowing which method to trust, and why.</p>
     </div>
     <div class="focus">
       <div class="fcard reveal d1">
@@ -274,6 +292,11 @@
         <div class="ic">03 · NUMERICS</div>
         <h3>Numerical methods</h3>
         <p>Finite-volume and finite-difference solvers coded from the discretized equations — stability, dispersion, and convergence characterized, not assumed.</p>
+      </div>
+      <div class="fcard reveal d3">
+        <div class="ic">04 · DATA</div>
+        <h3>Engineering data &amp; analytics</h3>
+        <p>Turning operational data into decisions — SQL pipelines, Python ETL, and BI dashboards serving 500+ users across mining and industrial operations.</p>
       </div>
     </div>
   </div>
@@ -371,14 +394,14 @@
           <div class="pleft">
             <div class="ptag">Thermal Management · Energy Storage</div>
             <h3 class="pt">Battery Cooling Optimization for Solar-Plus-Storage</h3>
-            <p class="pdesc">Finalist, Energy Innovation Challenge 2024 with AES Chile. I led the scoping toward battery thermal improvement and identified the cell-level hot-spot problem as the core failure mode.</p>
+            <p class="pdesc">Finalist and 3rd place, Energy Innovation Challenge 2024 with AES Chile. I led the scoping toward battery thermal improvement and identified the cell-level hot-spot problem as the core failure mode.</p>
             <div class="metrics">
               <div class="metric"><div class="num cool">31→&lt;5<small> °C</small></div><div class="ml">cell-to-cell spread, cut via airflow</div></div>
               <div class="metric"><div class="num good">×4</div><div class="ml">cooling-system COP improvement</div></div>
               <div class="metric"><div class="num hot">60<small>%</small></div><div class="ml">peak-T cut, immersion cooling</div></div>
             </div>
             <div class="chips"><span class="chip">BESS / Li-ion</span><span class="chip">immersion cooling</span><span class="chip">airflow optimization</span><span class="chip">industry partner</span></div>
-            <div class="meta-line">Team of 5 · AES Chile · Finalist · 2024</div>
+            <div class="meta-line">Team of 5 · AES Chile · Finalist · 3rd Place · 2024</div>
           </div>
           <div class="pright"><canvas class="viz" data-viz="battery"></canvas></div>
         </div>
@@ -406,6 +429,50 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Experience</div>
+      <h2 class="sec-title">From the plant floor<br>to the executive dashboard.</h2>
+      <p class="sec-lead">Engineering that ships decisions — reliability insights across mining operations, thermodynamic audits in industry, and automated reporting pipelines used by hundreds.</p>
+    </div>
+    <div class="block reveal">
+      <div class="timeline">
+        <div class="xp">
+          <div class="xp-top">
+            <div><span class="role">Applications Engineer</span> &nbsp;<span class="co">Bel-Ray Chile</span></div>
+            <div class="yr">2024 — PRESENT</div>
+          </div>
+          <ul>
+            <li>Analyzed maintenance, lubrication, and reliability KPIs across <b>20+ mining operations</b>, surfacing insights that reduced unplanned equipment failures and improved asset availability.</li>
+            <li>Built and automated executive reporting pipelines (SQL, Python, BI) serving <b>500+ users</b>, cutting manual reporting time and accelerating operational decisions.</li>
+            <li>Led traceability and digitization of <b>20,000+ operational records</b> and supported a business-critical platform used by mining and internal clients.</li>
+          </ul>
+        </div>
+        <div class="xp alt">
+          <div class="xp-top">
+            <div><span class="role">Engineering Intern</span> &nbsp;<span class="co">CMPC Maule Plant</span></div>
+            <div class="yr">2024</div>
+          </div>
+          <ul>
+            <li>Developed thermodynamic models and technical diagrams for <b>30+ industrial steam and energy systems</b>; identified efficiency opportunities and supported audit documentation.</li>
+          </ul>
+        </div>
+        <div class="xp">
+          <div class="xp-top">
+            <div><span class="role">Engineering Intern</span> &nbsp;<span class="co">Bel-Ray Chile</span></div>
+            <div class="yr">2024</div>
+          </div>
+          <ul>
+            <li>Developed and standardized <b>5 oil-sampling protocols</b> for critical mining equipment, improving predictive-maintenance consistency and strengthening sample traceability and data quality.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BACKGROUND -->
 <section id="background">
   <div class="wrap">
@@ -418,20 +485,21 @@
         <h4>Education</h4>
         <div class="row"><div class="yr">2024–26</div><div class="tx"><b>Boston University</b> — <span>MSc, Mechanical Engineering. USA.</span></div></div>
         <div class="row"><div class="yr">2022</div><div class="tx"><b>KTH Royal Institute of Technology</b> — <span>Exchange, energy systems. Sweden.</span></div></div>
-        <div class="row"><div class="yr">2018–24</div><div class="tx"><b>UTFSM</b> — <span>BSc + Engineering Thesis, Mechanical Engineering. Chile.</span></div></div>
+        <div class="row"><div class="yr">2018–25</div><div class="tx"><b>UTFSM</b> — <span>BSc + Engineering Thesis, Mechanical Engineering. Chile.</span></div></div>
       </div>
       <div class="block reveal d2">
         <h4>Recognition &amp; Leadership</h4>
-        <div class="row"><div class="yr">2024</div><div class="tx"><b>Finalist</b> — <span>Energy Innovation Challenge, AES Chile.</span></div></div>
+        <div class="row"><div class="yr">2024</div><div class="tx"><b>Finalist · 3rd Place</b> — <span>Energy Innovation Challenge, AES Chile.</span></div></div>
         <div class="row"><div class="yr">2025</div><div class="tx"><b>BU Graduate Scholarship</b></div></div>
         <div class="row"><div class="yr">2022</div><div class="tx"><b>Santander International Mobility Scholarship</b></div></div>
-        <div class="row"><div class="yr">—</div><div class="tx"><b>President &amp; General Secretary</b> — <span>Mechanical Engineering Student Council.</span></div></div>
+        <div class="row"><div class="yr">2021–24</div><div class="tx"><b>Student Council President &amp; TA</b> — <span>led 15 reps for 600+ Mech. Eng. students; TA in Graphics &amp; Thermodynamics.</span></div></div>
       </div>
     </div>
     <div class="block reveal d3" style="margin-top:24px">
       <h4>Toolbox</h4>
       <div class="chips">
-        <span class="chip">OpenFOAM</span><span class="chip">ANSYS Fluent</span><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">Autodesk Inventor</span><span class="chip">ParaView</span><span class="chip">IDA ICE</span><span class="chip">finite volume</span><span class="chip">finite difference</span><span class="chip">dynamic mesh</span><span class="chip">custom C functions</span><span class="chip">CFL / stability analysis</span>
+        <span class="chip">OpenFOAM</span><span class="chip">ANSYS Fluent</span><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">Autodesk Inventor</span><span class="chip">AutoCAD</span><span class="chip">ParaView</span><span class="chip">IDA ICE</span><span class="chip">finite volume</span><span class="chip">finite difference</span><span class="chip">dynamic mesh</span><span class="chip">custom C functions</span><span class="chip">CFL / stability analysis</span>
+        <span class="chip data">SQL · BigQuery</span><span class="chip data">Power BI</span><span class="chip data">Looker Studio</span><span class="chip data">ETL / data modeling</span><span class="chip data">Google Cloud</span><span class="chip data">report automation</span>
       </div>
     </div>
   </div>
@@ -442,10 +510,10 @@
   <div class="wrap">
     <div class="reveal">
       <h2>Let's build <span class="grad">efficient, reliable</span><br>thermal &amp; fluid systems.</h2>
-      <p>Open to full-time CFD, thermal, and simulation roles in the U.S. — starting May 2026. Willing to relocate.</p>
+      <p>Open to full-time roles in CFD, thermal systems, energy efficiency, and engineering data analytics in the U.S. Willing to relocate.</p>
       <div class="links">
-        <a class="btn primary" href="mailto:jpem@bu.edu">jpem@bu.edu</a>
-        <a class="btn ghost" href="https://javieraespinozam.github.io/resume.pdf">Resume (PDF)</a>
+        <a class="btn primary" href="mailto:javieraespinozam14@gmail.com">javieraespinozam14@gmail.com</a>
+        <a class="btn ghost" href="https://javieraespinozam.github.io/Javiera_Espinoza_CV.pdf">Resume (PDF)</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/jpespinozam/">LinkedIn</a>
       </div>
     </div>
